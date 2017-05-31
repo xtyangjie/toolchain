@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/plugin/neocomplcache
+END
+tags_complete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/plugin/neocomplcache/tags_complete.vim
+END
+include_complete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/plugin/neocomplcache/include_complete.vim
+END
+dictionary_complete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/plugin/neocomplcache/dictionary_complete.vim
+END
+syntax_complete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/plugin/neocomplcache/syntax_complete.vim
+END
+buffer_complete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/plugin/neocomplcache/buffer_complete.vim
+END

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/filters
+END
+converter_delimiter.vim
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/filters/converter_delimiter.vim
+END
+converter_remove_next_keyword.vim
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/filters/converter_remove_next_keyword.vim
+END
+sorter_rank.vim
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/filters/sorter_rank.vim
+END
+matcher_fuzzy.vim
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/filters/matcher_fuzzy.vim
+END
+converter_abbr.vim
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/filters/converter_abbr.vim
+END
+converter_nothing.vim
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/filters/converter_nothing.vim
+END
+sorter_length.vim
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/filters/sorter_length.vim
+END
+matcher_old.vim
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/filters/matcher_old.vim
+END
+converter_case.vim
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/filters/converter_case.vim
+END
+matcher_head.vim
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/filters/matcher_head.vim
+END
+sorter_nothing.vim
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/filters/sorter_nothing.vim
+END

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/sources
+END
+tags_complete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/sources/tags_complete.vim
+END
+filename_complete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/sources/filename_complete.vim
+END
+omni_complete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/sources/omni_complete.vim
+END
+include_complete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/sources/include_complete.vim
+END
+dictionary_complete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/sources/dictionary_complete.vim
+END
+syntax_complete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/sources/syntax_complete.vim
+END
+member_complete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/sources/member_complete.vim
+END
+buffer_complete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/sources/buffer_complete.vim
+END
+filename_include.vim
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/sources/filename_include.vim
+END
+vim_complete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/web/web_qqnews_rep/!svn/ver/169999/QQNews_Server_proj/trunk/qqnews_rec/RecommenderSystem/.vim/autoload/neocomplcache/sources/vim_complete.vim
+END

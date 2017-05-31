@@ -1,0 +1,56 @@
+# references
+# ----------
+# [1]: http://aperiodic.net/screen/faq#how_can_screen_use_xterm_s_title_bar
+# [2]: http://www.fwaggle.org/blog/internet/screen-irssi-xterm-titles
+# [3]: http://pastebin.com/m64253923
+# [4]: http://dotfiles.org/~xabbott/.screenrc
+# [5]: http://www4.informatik.uni-erlangen.de/~jnweiger/screen-faq.html
+# [6]: http://www.mattcutts.com/blog/screen-power-tips-screenrc/
+#
+# basic settings
+# --------------
+startup_message off     # turn off the startup message
+altscreen       on      # turn on the alternate screen buffer
+autodetach      on      # turn on autodetach (instead of dying) on HUP
+vbell           off     # turn off visual bell
+#defutf8         on      # turn on utf-8 support, may affect other charsets
+defscrollback   30000   # 30k of scrollback
+
+vbell_msg "[[[ ding ]]]" # visual bell msg
+activity "%c activity on window %n%f %t" # activity message
+bell_msg "%c bell in window %n%f %t" # non-visual bell (^G = beep) [4]
+
+# caption [4]
+#
+# Format Explanation
+# ------ -----------
+# %{=r gk}[ reverse video green on black
+# %{G}%H hostname in bold green text
+# %{g}] switch back to regular green for the closing sq. bracket
+# %{w}%?%-Lw%? displays all windows to the left of the current window with white text
+# %{=b kR}( starts the current window display with red '('
+# %{W}%n*%f %t bold white window number, a '*' and the flags on the window and the title
+# %?(%u)%? display other users on this window if they exist
+# ${=b kR}) the red closing paren
+# ${= kw} clear the colors back to white on black
+# %?%+Lw%? display the rest of the window list
+# %{g}] green closing sq. bracket
+# %=%{=b C}%{W} pad the string to the end with bold cyan then bold white (???)
+#
+caption always '%{=r gk}[ %{G}%H %{g}][ %{w}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%? %{g}]%=%{=b C}[ %M %d %c ]%{W}'
+#caption always '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?% Lw%?%?%= %{g}]%{=b C}[ %M %d %c ]%{W}'
+# Tells xterm to allow scrolling in it's alternate buffer [5][6]
+termcapinfo xterm ti@:te@
+
+# Set the xterm titlebar [1][2][3]
+termcapinfo * 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+defhstatus "#^E (^Et) | $USER@^EH"
+hardstatus off
+
+#hardstatus on
+#hardstatus alwayslastline
+#hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?% Lw%?%?%= %{g}]%{=b C}[ %M %d %c ]%{W}'
+
+# encoding
+# defencoding gbk
+# encoding gbk gbk

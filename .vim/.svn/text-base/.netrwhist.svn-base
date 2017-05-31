@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/data/webroot/owencheng/RecommenderSystem/PlayService.triggerProxy'
+let g:netrw_dirhist_2='/data/webroot/RecommenderSystem/Ranking/Kuaibao_Ranking_5000/RankingWorker_Kuaibao_C/Model.ts'
+let g:netrw_dirhist_3='/data/webroot/owencheng/RecommenderSystem/PlayService.triggerProxy'
+let g:netrw_dirhist_4='/data/webroot/owencheng/RecommenderSystem/PlayService'
