@@ -54,3 +54,6 @@ hardstatus off
 # encoding
 # defencoding gbk
 # encoding gbk gbk
+
+# dash makes it a login shell
+defshell -bash

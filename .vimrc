@@ -1,3 +1,31 @@
+set nocompatible                " be iMproved
+
+""" {{{ bundle config begin
+filetype off                    " required!
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+"" -- Bundles here --
+
+" -- original repos on github --
+
+" -- vim-scripts repos --
+Bundle 'a.vim'
+
+" let vundle manage vundle
+Bundle 'gmarik/vundle'
+Bundle 'uarun/vim-protobuf'
+Bundle 'Valloric/YouCompleteMe'
+
+" -- non github repos --
+" Bundle 'git://git.wincent.com/command-t.git'
+
+" open filetype plugin after bundle config
+filetype plugin indent on
+
+""" }}} bundle config end
+
+
 set number
 set autoindent
 
