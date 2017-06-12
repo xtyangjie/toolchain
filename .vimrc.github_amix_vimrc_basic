@@ -444,13 +444,6 @@ let Tlist_Ctags_Cmd="/usr/bin/ctags"
 map <F10> :Tlist<CR>
 " }}} Tlist End
 
-" {{{ neocomplete begin
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_quick_match = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_auto_select = 1
-" }}} neocomplete end
-
 " {{{ NERDTree begin
 map <F9> :NERDTreeToggle<CR>
 nnoremap <C-N> :NERDTreeFind<CR>
