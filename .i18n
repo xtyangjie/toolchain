@@ -1,0 +1,7 @@
+# 本文件用于指定当前账户的locale配置
+# 如下指定默认字符集为en_US, 但由于使用utf8编码, 中文的
+# 显示及输入也是正常的.
+LC_ALL="en_US.utf8"
+
+# 最后export需要生效的环境变量
+export LC_ALL
