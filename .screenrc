@@ -9,12 +9,14 @@
 #
 # basic settings
 # --------------
+escape ^K^K		# set escape key to "ctrl-L"
 startup_message off     # turn off the startup message
 altscreen       on      # turn on the alternate screen buffer
 autodetach      on      # turn on autodetach (instead of dying) on HUP
 vbell           off     # turn off visual bell
 #defutf8         on      # turn on utf-8 support, may affect other charsets
 defscrollback   30000   # 30k of scrollback
+# term screen-256color	# turn on it if the color is not 256 depth
 
 vbell_msg "[[[ ding ]]]" # visual bell msg
 activity "%c activity on window %n%f %t" # activity message
@@ -38,6 +40,7 @@ bell_msg "%c bell in window %n%f %t" # non-visual bell (^G = beep) [4]
 # %=%{=b C}%{W} pad the string to the end with bold cyan then bold white (???)
 #
 caption always '%{=r gk}[ %{G}%H %{g}][ %{w}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%? %{g}]%=%{=b C}[ %M %d %c ]%{W}'
+#caption always "%?%F%{-b 4w}%:%{-b bb}%? %H | %l | %m-%d %c |%?%F%{-b 4w}%?%L=%-Lw%45>%{-b w4}%n%f* %t%{-}%+Lw%-0<"
 #caption always '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?% Lw%?%?%= %{g}]%{=b C}[ %M %d %c ]%{W}'
 # Tells xterm to allow scrolling in it's alternate buffer [5][6]
 termcapinfo xterm ti@:te@

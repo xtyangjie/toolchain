@@ -4,19 +4,25 @@
 
 # Get the aliases and functions
 if [ -f ${HOME}/.bashrc ]; then
-	source ${HOME}/.bashrc
+    source ${HOME}/.bashrc
 fi
 
+## exports
 # ME
 export MAILTO=`whoami`
-
-## exports
+export USER=${MAILTO}
 
 # workspaces
-# export COLUMNS=240
-# LOCALE
+
+# terminal title
+if [ -f ${HOME}/toolchain/COMMAND_SCHEMAS ]; then
+    source ${HOME}/toolchain/COMMAND_SCHEMAS
+fi
+
+#short_hostname=$(hostname | awk -F. ' {print $1} ')
+#export PROMPT_COMMAND='printf "\e[01;35mFUN \e[01;32m%s@%s\e[m" "${USER}" "${short_hostname}"'
 # \A: HH:MM, \t or \D{%H:%M:%S}: HH:MM:SS \h: hostname
-export PS1="\[\e[01;32m\]\u@[\t]\[\e[01;94m\] \w \$\[\e[m\] "
+#export PS1="\[\e[01;32m\]\u@[\t]\[\e[01;94m\] \w \$\[\e[m\] "
 #export PS1="\e[1;37m[\e[m\e[1;32m\u\e[m\e[1;33m@\e[m\e[1;35m\h\e[m \e[4m\e[m\e[1;37m]\e[m\e[1;36m\e[m\\$\n"
 # System bit-size
 export EDITOR="vim"
@@ -31,7 +37,7 @@ export HISTSIZE=10000
 # perl-db
 export PERL5DB_THREADED=1
 # python user base
-export PYTHONUSERBASE="${HOME}/toolchain"
+#export PYTHONUSERBASE="${HOME}/toolchain"
 # env
 export PATH="${HOME}/toolchain/bin:${PATH}"
 export MANPATH="/data/home/jemyyang/toolchain/share/man:${MANPATH}"

@@ -1,5 +1,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
+"    -> Bundles
 "    -> General
 "    -> VIM user interface
 "    -> Colors and Fonts
@@ -13,6 +14,7 @@
 "    -> Spell checking
 "    -> Misc
 "    -> Helper functions
+"    -> Plugin settings
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -30,11 +32,25 @@ call vundle#rc()
 
 " -- vim-scripts repos --
 Bundle 'a.vim'
+Bundle 'taglist.vim'
+Bundle 'winmanager'
 
 " let vundle manage vundle
-Bundle 'gmarik/vundle'
-Bundle 'uarun/vim-protobuf'
+" Bundle 'rdnetto/YCM-Generator'
+Bundle 'Chiel92/vim-autoformat'
+Bundle 'Raimondi/delimitMate'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'WolfgangMehner/c-support'
+Bundle 'dkprice/vim-easygrep'
+Bundle 'gmarik/vundle'
+Bundle 'jeaye/color_coded'
+Bundle 'jlanzarotta/bufexplorer'
+" Bundle 'octol/vim-cpp-enhanced-highlight'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'uarun/vim-protobuf'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 
 " -- non github repos --
 " Bundle 'git://git.wincent.com/command-t.git'
@@ -56,13 +72,13 @@ set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
+let mapleader = "\\"
+let g:mapleader = "\\"
 
 " Fast saving
 nmap <leader>w :w!<cr>
 
-" :W sudo saves the file 
+" :W sudo saves the file
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
@@ -72,11 +88,13 @@ command W w !sudo tee % > /dev/null
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{
 " Set 7 lines to the cursor - when moving vertically using j/k
-set so=7
+set scrolloff=7
+set softtabstop=4
 set number
+set cursorline
 
 " Avoid garbled characters in Chinese language windows OS
-let $LANG='en' 
+let $LANG='en'
 set langmenu=en
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
@@ -106,7 +124,7 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
 " Ignore case when searching
-set ignorecase
+" set ignorecase
 
 " When searching try to be smart about cases 
 set smartcase
@@ -115,16 +133,16 @@ set smartcase
 set hlsearch
 
 " Makes search act like search in modern browsers
-set incsearch 
+set incsearch
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+set lazyredraw
 
 " For regular expressions turn magic on
 set magic
 
 " Show matching brackets when text indicator is over them
-set showmatch 
+set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -145,7 +163,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{
 " Enable syntax highlighting
-syntax enable 
+syntax enable
 
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
@@ -153,8 +171,9 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme desert
+    colorscheme color_coded_desert
 catch
+"    colorscheme desert
 endtry
 
 set background=dark
@@ -180,10 +199,13 @@ set ffs=unix,dos,mac
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
-set nobackup
 set nowb
 set noswapfile
+
+"自动备份
+set backup
+let &bex='-'.strftime("%Y%m%d_%T")
+set bdir=$HOME/temp/vim_backup
 
 "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -192,10 +214,8 @@ set noswapfile
 "{{{
 " Use spaces instead of tabs
 set expandtab
-
 " Be smart when using tabs ;)
 set smarttab
-
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
@@ -209,9 +229,9 @@ set si "Smart indent
 set wrap "Wrap lines
 
 "}}}
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Visual mode related
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
@@ -224,8 +244,8 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
+" map <space> /
+" map <c-space> ?
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -255,7 +275,7 @@ map <F5> :tablast<CR>
 map <F6> :tabnew<CR>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
+map <leader>tm :tabmove<cr>
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
@@ -267,7 +287,7 @@ au TabLeave * let g:lasttab = tabpagenr()
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
+map <leader>pwd :cd %:p:h<cr>:pwd<cr>
 
 " Specify the behavior when switching between buffers 
 try
@@ -280,15 +300,14 @@ endtry
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 "}}}
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status line
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{
 " Always show the status line
 set laststatus=2
-
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -296,7 +315,10 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{
 " Remap VIM 0 to first non-blank character
-map 0 ^
+" map 0 ^
+
+" set mapping / leader key timeout to 1.5s
+set timeoutlen=1500
 
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
@@ -344,8 +366,8 @@ endif
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{
-" Pressing ,ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
+" Pressing \ss will toggle and untoggle spell checking
+" map <leader>ss :setlocal spell!<cr>
 
 " Shortcuts using <leader>
 map <leader>sn ]s
@@ -368,7 +390,7 @@ map <leader>q :e ~/buffer<cr>
 map <leader>x :e ~/buffer.md<cr>
 
 " Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
+map <leader>pas :setlocal paste!<cr>
 
 "}}}
 
@@ -447,4 +469,132 @@ map <F10> :Tlist<CR>
 " {{{ NERDTree begin
 map <F9> :NERDTreeToggle<CR>
 nnoremap <C-N> :NERDTreeFind<CR>
+" 当不带参数打开Vim时自动加载项目树
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" 当所有文件关闭时关闭项目树窗格
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" 不显示这些文件
+" let NERDTreeIgnore=['\.pyc$', '\~$', 'node_modules'] "ignore files in NERDTree
+" 不显示项目树上额外的信息，例如帮助、提示什么的
+let NERDTreeMinimalUI=1
 " }}} NERDTree end
+
+" {{{ YouCompleteMe begin
+" 设置error和warning的提示符，如果没有设置，ycm会以syntastic的
+" g:syntastic_warning_symbol 和 g:syntastic_error_symbol 这两个为准
+let g:ycm_error_symbol='>>'
+let g:ycm_warning_symbol='>*'
+" use python2
+let g:ycm_server_python_interpreter='/usr/bin/python'
+
+" mappings
+nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"设置全局配置文件的路径
+let g:ycm_global_ycm_extra_conf = '~/toolchain/.ycm_extra_conf.py'
+"开启基于tag的补全，可以在这之后添加需要的标签路径
+let g:ycm_collect_identifiers_from_tags_files = 1
+"开启语义补全
+let g:ycm_seed_identifiers_with_syntax = 1
+"在接受补全后不分裂出一个窗口显示接受的项
+set completeopt-=preview
+"不显示开启vim时检查ycm_extra_conf文件的信息
+let g:ycm_confirm_extra_conf=0
+"每次重新生成匹配项，禁止缓存匹配项
+let g:ycm_cache_omnifunc=0
+"在注释中也可以补全
+let g:ycm_complete_in_comments=1
+"输入第一个字符就开始补全
+let g:ycm_min_num_of_chars_for_completion=1
+"不查询ultisnips提供的代码模板补全，如果需要，设置成1即可
+let g:ycm_use_ultisnips_completer=0
+"将默认的手动补全快捷键由<C-a>改为如下
+"let g:ycm_key_invoke_completion='<leader>ga'
+" }}} YouCompleteMe end
+
+" {{{ Autoformat begin
+nnoremap <leader>fo :Autoformat<cr>
+" }}} Autoformat end
+
+" {{{ nerdcommenter begin
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+" let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" }}} nerdcommenter end
+
+" {{{ airline begin
+" Automatically displays all buffers when there's only one tab open
+" let g:airline#extensions#tabline#enabled = 1
+" Separators can be configured independently for the tabline, so here is how you can define "straight" tabs:
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = '|'
+" select user-specific font
+" let g:airline_powerline_fonts = 1
+
+set term=xterm-256color
+set termencoding=utf-8
+" enable 256 color of terminal
+set t_Co=256
+" Hide the defaultmode text (e.g. -- INSERT -- below the statusline)
+set noshowmode
+" set guifont=Inconsolata\ for\ Powerline:h15
+" forbid statusline fillchars
+set fillchars+=stl:\ ,stlnc:\
+" set section b to show current time
+" let g:airline_section_b='%{strftime("%c")}'
+" automatically display all buffers when there is just on tab
+let g:airline#extensions#tabline#enabled = 1
+" themes
+let g:airline_theme="luna"
+" let g:airline_theme='alduin'
+" let g:airline_theme='badcat'
+
+" }}} airline end
+
+" " {{{ vim-cpp-enhanced-highlight begin - Commented -
+" " Highlighting of class scope is disabled by default
+" let g:cpp_class_scope_highlight = 1
+" " Highlighting of member variables is disabled by default
+" let g:cpp_member_variable_highlight = 1
+" " Highlighting of class names in declarations is disabled by default
+" let g:cpp_class_decl_highlight = 1
+" " There are two ways to hightlight template functions. Either
+" " set the former one which works in most cases, but can be a
+" " little slow on large files. Alternatively set the latter one
+" " which is a faster implementation but has some corner cases
+" " where it doesn't work.
+" " let g:cpp_experimental_simple_template_highlight = 1
+" " Note: C++ template syntax is notoriously difficult to parse,
+" " so don't expect this feature to be perfect.
+" let g:cpp_experimental_template_highlight = 1
+"
+" " Highlighting of library concepts is enabled by
+" let g:cpp_concepts_highlight = 1
+" " Vim tend to a have issues with flagging braces as errors,
+" " see for example https://github.com/vim-jp/vim-cpp/issues/16.
+" let c_no_curly_error=1
+" " }}} vim-cpp-enhanced-highlight end
+
+" {{{ color_coded begin
+" Disable color_coded in diff mode
+if &diff
+    let g:color_coded_enabled = 0
+endif
+let g:color_coded_filetypes = ['c', 'cpp', 'objc']
+" }}} color_coded end
